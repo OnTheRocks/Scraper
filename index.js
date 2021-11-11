@@ -7,7 +7,14 @@ const app = express()
 
 const url = 'https://www.yahoo.com'
 
-axios(url)
+// app.METHOD(PATH, HANDLER)
+
+app.get('/', function(req, res) {
+  res.json('This is my SCRAPER!')
+})
+
+app.get('/news', (req, res) => {
+  axios(url)
   .then(response => {
     const html = response.data
     const $ = cheerio.load(html)
@@ -22,7 +29,11 @@ axios(url)
       })
     })
     console.log(articles)
+    res.json(articles)
     
   }).catch(err => console.log(err))
+})
+
+
 
 app.listen(port, () => console.log("Server is running on PORT ${PORT}"))
