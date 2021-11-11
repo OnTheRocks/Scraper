@@ -2,8 +2,11 @@ const axios = require('axios')
 const cheerio = require('cheerio')
 const express = require('express')
 const port = 5400
+const cors = require('cors')
 
 const app = express()
+
+app.use(cors())
 
 const url = 'https://www.yahoo.com'
 
