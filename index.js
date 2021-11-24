@@ -39,4 +39,4 @@ app.get('/news', (req, res) => {
 
 
 
-app.listen(port, () => console.log("Server is running on PORT ${PORT}"))
+app.listen(port, () => console.log("Server is running on PORT", port))
